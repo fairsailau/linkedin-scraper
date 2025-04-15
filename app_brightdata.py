@@ -949,6 +949,9 @@ def show_settings():
         if submit_button:
             new_storage_type = storage_type.lower()
             
+            # Declare data_manager as global at the beginning of the block
+            global data_manager
+            
             if new_storage_type != st.session_state.storage_type:
                 # Storage type changed, migrate data
                 old_data_manager = data_manager
@@ -982,7 +985,6 @@ def show_settings():
                     st.session_state.db_path = db_path
                 
                 # Update data manager
-                global data_manager
                 data_manager = new_data_manager
                 
                 st.success("Storage settings saved and data migrated successfully")

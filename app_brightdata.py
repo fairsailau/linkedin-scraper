@@ -87,7 +87,18 @@ def show_login():
         if st.button("Login", key="login_button"):
             if username == "demo" and password == "demo123":
                 st.session_state.logged_in = True
-                st.experimental_rerun()
+                st.success("Login successful! Redirecting to dashboard...")
+                # Use JavaScript to reload the page instead of experimental_rerun
+                st.markdown(
+                    """
+                    <script>
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1500);
+                    </script>
+                    """,
+                    unsafe_allow_html=True
+                )
             else:
                 st.error("Invalid username or password")
         
@@ -102,32 +113,92 @@ def show_navigation():
     with col1:
         if st.button("Dashboard", key="nav_dashboard"):
             st.session_state.current_page = "dashboard"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col2:
         if st.button("Search LinkedIn", key="nav_search"):
             st.session_state.current_page = "search"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col3:
         if st.button("Manage Leads", key="nav_leads"):
             st.session_state.current_page = "leads"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col4:
         if st.button("Create Filters", key="nav_filters"):
             st.session_state.current_page = "filters"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col5:
         if st.button("Analytics", key="nav_analytics"):
             st.session_state.current_page = "analytics"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col6:
         if st.button("Settings", key="nav_settings"):
             st.session_state.current_page = "settings"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -140,10 +211,30 @@ def show_sidebar():
         theme = st.radio("Theme", ["Light", "Dark"], index=0 if st.session_state.theme == "light" else 1)
         if theme == "Light" and st.session_state.theme != "light":
             st.session_state.theme = "light"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
         elif theme == "Dark" and st.session_state.theme != "dark":
             st.session_state.theme = "dark"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
         
         st.markdown("<hr>", unsafe_allow_html=True)
         
@@ -152,7 +243,17 @@ def show_sidebar():
         
         if st.button("New Search", key="sidebar_search"):
             st.session_state.current_page = "search"
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
         
         if st.button("Export Leads", key="sidebar_export"):
             if st.session_state.leads_df.empty:
@@ -185,7 +286,17 @@ def show_sidebar():
         # Logout
         if st.button("Logout", key="sidebar_logout"):
             st.session_state.logged_in = False
-            st.experimental_rerun()
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
 
 # Dashboard page
 def show_dashboard():
@@ -506,8 +617,30 @@ def show_leads():
         view_mode = st.radio("View Mode", ["Card View", "Table View"], index=0 if st.session_state.view_mode == "card" else 1)
         if view_mode == "Card View" and st.session_state.view_mode != "card":
             st.session_state.view_mode = "card"
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
         elif view_mode == "Table View" and st.session_state.view_mode != "table":
             st.session_state.view_mode = "table"
+            # Use JavaScript to reload the page instead of experimental_rerun
+            st.markdown(
+                """
+                <script>
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
+                </script>
+                """,
+                unsafe_allow_html=True
+            )
     
     with col2:
         sort_by = st.selectbox("Sort By", ["Name", "Title", "Company", "Location", "Qualification"])
@@ -564,12 +697,32 @@ def show_leads():
                                 if st.button("Unqualify", key=f"unqualify_{i+j}"):
                                     st.session_state.leads_df.loc[st.session_state.leads_df['profile_url'] == lead['profile_url'], 'is_qualified'] = False
                                     data_manager.save_leads(st.session_state.leads_df)
-                                    st.experimental_rerun()
+                                    # Use JavaScript to reload the page instead of experimental_rerun
+                                    st.markdown(
+                                        """
+                                        <script>
+                                        setTimeout(function() {
+                                            window.location.reload();
+                                        }, 100);
+                                        </script>
+                                        """,
+                                        unsafe_allow_html=True
+                                    )
                             else:
                                 if st.button("Qualify", key=f"qualify_{i+j}"):
                                     st.session_state.leads_df.loc[st.session_state.leads_df['profile_url'] == lead['profile_url'], 'is_qualified'] = True
                                     data_manager.save_leads(st.session_state.leads_df)
-                                    st.experimental_rerun()
+                                    # Use JavaScript to reload the page instead of experimental_rerun
+                                    st.markdown(
+                                        """
+                                        <script>
+                                        setTimeout(function() {
+                                            window.location.reload();
+                                        }, 100);
+                                        </script>
+                                        """,
+                                        unsafe_allow_html=True
+                                    )
                         
                         st.markdown("</div>", unsafe_allow_html=True)
         
@@ -612,12 +765,32 @@ def show_leads():
                     if st.button("Mark as Unqualified"):
                         st.session_state.leads_df.loc[st.session_state.leads_df['profile_url'] == lead['profile_url'], 'is_qualified'] = False
                         data_manager.save_leads(st.session_state.leads_df)
-                        st.experimental_rerun()
+                        # Use JavaScript to reload the page instead of experimental_rerun
+                        st.markdown(
+                            """
+                            <script>
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 100);
+                            </script>
+                            """,
+                            unsafe_allow_html=True
+                        )
                 else:
                     if st.button("Mark as Qualified"):
                         st.session_state.leads_df.loc[st.session_state.leads_df['profile_url'] == lead['profile_url'], 'is_qualified'] = True
                         data_manager.save_leads(st.session_state.leads_df)
-                        st.experimental_rerun()
+                        # Use JavaScript to reload the page instead of experimental_rerun
+                        st.markdown(
+                            """
+                            <script>
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 100);
+                            </script>
+                            """,
+                            unsafe_allow_html=True
+                        )
                 
                 # Notes
                 notes = st.text_area("Notes", value=lead.get('notes', ''))
@@ -721,7 +894,17 @@ def show_filters():
                     
                     # Switch to leads page
                     st.session_state.current_page = "leads"
-                    st.experimental_rerun()
+                    # Use JavaScript to reload the page instead of experimental_rerun
+                    st.markdown(
+                        """
+                        <script>
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 100);
+                        </script>
+                        """,
+                        unsafe_allow_html=True
+                    )
                 
                 if st.button("Delete Filter", key=f"delete_{i}"):
                     # Remove filter
@@ -731,7 +914,17 @@ def show_filters():
                     data_manager.save_filters(st.session_state.filters)
                     
                     st.success("Filter deleted successfully")
-                    st.experimental_rerun()
+                    # Use JavaScript to reload the page instead of experimental_rerun
+                    st.markdown(
+                        """
+                        <script>
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 100);
+                        </script>
+                        """,
+                        unsafe_allow_html=True
+                    )
                 
                 st.markdown("</div>", unsafe_allow_html=True)
         else:
